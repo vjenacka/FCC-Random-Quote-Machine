@@ -1,9 +1,8 @@
 #quote-box{
     width: 40%;
-    margin: 18vh auto;
+    margin: 0 auto;
     padding: 40px;
     background-color: #fff;
-    color: rgb(119, 177, 169);
 }
 .quote{
     text-align: center;
@@ -30,13 +29,11 @@
 .buttons i{
     font-size: 30px;
     margin-right: 10px;
-    color: rgb(119, 177, 169);
 }
 #new-quote{
-    width: 80px;
+    width: 90px;
     margin-left:auto;
     padding: 8px;
     color: #fff;
-    background-color: rgb(119, 177, 169);
     border-radius: 5px;
 }

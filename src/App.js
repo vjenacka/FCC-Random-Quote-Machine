@@ -3,10 +3,27 @@ import QuoteCard from "./components/QuoteCard/QuoteCard";
 
 class App extends React.Component {
   state = {
+    colorArr: [
+      "red",
+      "pink",
+      "purple",
+      "deep-purple",
+      "indigo",
+      "blue",
+      "light-blue",
+      "cyan",
+      "teal",
+      "green",
+      "orange",
+      "amber",
+      'grey',
+      'deep-orange'
+    ],
     quotes: [],
     quote: "",
     author: "",
-    isFetched: false
+    isFetched: false,
+    color: ""
   };
   componentDidMount() {
     fetch(
@@ -17,29 +34,34 @@ class App extends React.Component {
       })
       .then(jsonResp => {
         const quoteIndex = Math.floor(Math.random() * 102);
+        const randomColor=  Math.floor(Math.random() * 13);
         this.setState({
           quotes: jsonResp.quotes,
           quote: jsonResp.quotes[quoteIndex].quote,
           author: jsonResp.quotes[quoteIndex].author,
-          isFetched: !this.state.isFetched
+          isFetched: !this.state.isFetched,
+          color:this.state.colorArr[randomColor]
         });
       });
   }
   newQuote = () => {
     const quoteIndex = Math.floor(Math.random() * 102);
+    const randomColor=  Math.floor(Math.random() * 13);
     this.setState({
       quote: this.state.quotes[quoteIndex].quote,
-      author: this.state.quotes[quoteIndex].author
+      author: this.state.quotes[quoteIndex].author,
+      color:this.state.colorArr[randomColor]
     });
   };
   render() {
     return (
-      <div className="App">
+      <div className={`App ${this.state.color}`}>
         {this.state.isFetched && (
           <QuoteCard
             quote={this.state.quote}
             author={this.state.author}
             newQuote={this.newQuote}
+            color={this.state.color}
           />
         )}
       </div>
