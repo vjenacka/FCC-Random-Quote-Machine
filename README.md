@@ -1,1 +1,1 @@
-First freeCodeCamp Frontend libraries project.
+First freeCodeCamp Frontend libraries project. Deployed: https://vjenacka.github.io/FCC-Random-Quote-Machine/
